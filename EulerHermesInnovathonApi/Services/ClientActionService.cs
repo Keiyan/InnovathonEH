@@ -121,7 +121,7 @@ Here is a copy of the contract accepted for this intervention :
             new System.Net.WebClient().DownloadStringAsync(new Uri(uri));
         }
 
-        private List<ClientAction> _actionList;
+        private List<ClientAction> _actionList = new List<ClientAction>();
 
         private const string FileName = "C:\\temp\\actions.json";
 
