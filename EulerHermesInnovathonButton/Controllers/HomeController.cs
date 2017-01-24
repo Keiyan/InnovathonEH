@@ -62,11 +62,8 @@ namespace EulerHermesInnovathonButton.Controllers
 
         public async Task<ActionResult> Accept(int quoteId)
         {
-            var response = await client.PostAsync<int>(ApiBaseUrl + $"/quote/{quoteId}", quoteId, new JsonMediaTypeFormatter());
-            if (response.IsSuccessStatusCode)
-                return View();
-
-            return HttpNotFound();
+            var response = await client.PostAsync<int>(ApiBaseUrl + $"/accept?quoteId={quoteId}", quoteId, new JsonMediaTypeFormatter());
+            return View(response.IsSuccessStatusCode);
         }
     }
 }
