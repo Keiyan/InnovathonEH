@@ -1,4 +1,5 @@
 ﻿using EulerHermesInnovathon.Models.Button;
+using EulerHermesInnovathonApi.Repositories;
 using EulerHermesInnovathonApi.Services;
 using System;
 using System.Collections.Generic;
@@ -15,21 +16,21 @@ namespace EulerHermesInnovathonApi.Controllers
         [Route("category/all")]
         public IEnumerable<Category> GetEmergencyCategories()
         {
-            return EmergencyResponse.ResponseList.Select(e => e.Category);
+            return DataRepository.Instance.ResponseList.Select(e => e.Category);
         }
 
         [HttpGet]
         [Route("category/{id}")]
         public EmergencyResponse GetCategory(int id)
         {
-            return EmergencyResponse.ResponseList.FirstOrDefault(e => e.Category.Id == id);
+            return DataRepository.Instance.ResponseList.FirstOrDefault(e => e.Category.Id == id);
         }
 
         [HttpPost]
         [Route("accept")]
         public IHttpActionResult AcceptQuote(int quoteId)
         {
-            ClientActionService.Instance.PerformClientActions(EmergencyResponse.ResponseList.SelectMany(e => e.QuoteList).FirstOrDefault(l => l.Id == quoteId));
+            ClientActionService.Instance.PerformClientActions(DataRepository.Instance.ResponseList.SelectMany(e => e.QuoteList).FirstOrDefault(l => l.Id == quoteId));
 
             return Ok();
         }

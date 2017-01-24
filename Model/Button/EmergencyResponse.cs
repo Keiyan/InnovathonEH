@@ -8,36 +8,6 @@ namespace EulerHermesInnovathon.Models.Button
 {
     public class EmergencyResponse : BaseEntity
     {
-        public static IEnumerable<EmergencyResponse> ResponseList { get; private set; }
-
-        static EmergencyResponse()
-        {
-            ResponseList = new List<EmergencyResponse>()
-            {
-                new EmergencyResponse(
-                    new Category(""),
-                    new Warranty(0,0),
-                    new List<PartnerQuote>()
-                    {
-                        new PartnerQuote("",0),
-                    }),
-                new EmergencyResponse(
-                    new Category(""),
-                    new Warranty(1,0),
-                    new List<PartnerQuote>()
-                    {
-                        new PartnerQuote("",0),
-                    }),
-                new EmergencyResponse(
-                    new Category(""),
-                    new Warranty(2,0),
-                    new List<PartnerQuote>()
-                    {
-                        new PartnerQuote("",0),
-                    }),
-            };
-        }
-
         public EmergencyResponse() { }
 
         public EmergencyResponse(Category category, Warranty guaranty, IEnumerable<PartnerQuote> quoteList)

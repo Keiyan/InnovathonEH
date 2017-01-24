@@ -8,11 +8,6 @@ namespace EulerHermesInnovathon.Models.Offer
 {
     public class Enterprise : BaseEntity
     {
-        public static readonly IEnumerable<Enterprise> EnterpriseList = new List<Enterprise>()
-        {
-            new Enterprise("678502444", "ROHL", 6700000, 30, "2740Z", false, "Fabrication d'éclairage", null),
-        };
-
         public Enterprise() { }
 
         public Enterprise(
