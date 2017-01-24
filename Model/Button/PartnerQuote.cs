@@ -8,7 +8,7 @@ namespace EulerHermesInnovathon.Models.Button
     public class PartnerQuote
     {
         private static int nextId = 0;
-        public PartnerQuote() { this.PartnerQuoteId = nextId++; }
+        public PartnerQuote() { }
         public PartnerQuote(string partnerName, int hourlyPrice, string contract = null)
         {
             this.PartnerQuoteId = nextId++;

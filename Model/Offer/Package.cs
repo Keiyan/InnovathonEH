@@ -17,7 +17,7 @@ namespace EulerHermesInnovathon.Models.Offer
 
         private static int nextId = 0;
 
-        public Package() { this.PackageId = nextId++; }
+        public Package() { }
         public Package(string name, int annualPrice, string description = null, string contract = null)
         {
             this.PackageId = nextId++;
