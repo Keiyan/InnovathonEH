@@ -116,9 +116,9 @@ Here is a copy of the contract accepted for this intervention :
             client.Send(mail);
         }
 
-        private void callback(string actionData, PartnerQuote quote)
+        private void callback(string uri, PartnerQuote quote)
         {
-            throw new NotImplementedException();
+            new System.Net.WebClient().DownloadStringAsync(new Uri(uri));
         }
 
         private List<ClientAction> _actionList;
