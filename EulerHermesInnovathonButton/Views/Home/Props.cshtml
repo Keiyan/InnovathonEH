@@ -1,7 +1,24 @@
-﻿@{
+﻿@using EulerHermesInnovathon.Models.Button;
+@model EmergencyResponse
+@{
     ViewBag.Title = "Props";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<h2>Category</h2>
+@Model.Category.CategoryId
+
+<h2>Guaranty</h2>
+<h3>Excess</h3>
+@Model.Guaranty.Excess
+
+<h3>Coverage</h3>
+@Model.Guaranty.Coverage
+
+<h2>Quotes</h2>
+@foreach (var quote in Model.QuoteList)
+{
+    <h4>Hourly Price</h4>
+    @quote.HourlyPrice
+    @Html.ActionLink("Accepter", "Accept", new { quoteId = quote})
+    <br />
+}

@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using System.Net;
 using System.Threading.Tasks;
 using System.Net.Http.Formatting;
-
+using EulerHermesInnovathon.Models.Button;
 
 namespace EulerHermesInnovathonButton.Controllers
 {
@@ -24,7 +24,6 @@ namespace EulerHermesInnovathonButton.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
-
 
         public async Task<ActionResult> Index()
         {
@@ -43,31 +42,31 @@ namespace EulerHermesInnovathonButton.Controllers
             //    Session["categories"] = choices;
             //}
 
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync(ApiBaseUrl + "/category/all");
-
-            var categories = new List<int>();
+            var response = await client.GetAsync(ApiBaseUrl + "/category/all");
+            var categories = new List<Category>();
             if (response.IsSuccessStatusCode)
-            {
-                categories = await response.Content.ReadAsAsync<List<int>>();
-            }
+                categories = await response.Content.ReadAsAsync<List<Category>>();
 
-            var model = new List<int>();
-            return View(model);
+            return View(categories);
         }
 
-        public ActionResult Props()
+        public async Task<ActionResult> Props(int catId)
         {
-            ViewBag.Message = "Your application description page.";
+            var response = await client.GetAsync(ApiBaseUrl + $"/category/{catId}");
+            var emergency = new EmergencyResponse();
+            if (response.IsSuccessStatusCode)
+                emergency = await response.Content.ReadAsAsync<EmergencyResponse>();
 
-            return View();
+            return View(emergency);
         }
 
-        public ActionResult Contact()
+        public async Task<ActionResult> Accept(int quoteId)
         {
-            ViewBag.Message = "Your contact page.";
+            var response = await client.PostAsync<int>(ApiBaseUrl + $"/quote/{quoteId}", quoteId, new JsonMediaTypeFormatter());
+            if (response.IsSuccessStatusCode)
+                return View();
 
-            return View();
+            return HttpNotFound();
         }
     }
 }
