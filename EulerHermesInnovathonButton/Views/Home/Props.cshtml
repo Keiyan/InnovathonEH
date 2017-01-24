@@ -1,7 +1,7 @@
 ﻿@using EulerHermesInnovathon.Models.Button;
 @model EmergencyResponse
 @{
-    ViewBag.Title = "Props";
+    ViewBag.Title = "Quotes";
 }
 
 <h2>Category</h2>
@@ -9,10 +9,10 @@
 
 <h2>Warranty</h2>
 <h3>Excess</h3>
-@Model.Guaranty.Excess
+@Model.Warranty.Excess
 
 <h3>Coverage</h3>
-@Model.Guaranty.Coverage
+@Model.Warranty.Coverage
 
 <h2>Quotes</h2>
 @foreach (var quote in Model.QuoteList)
