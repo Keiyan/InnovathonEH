@@ -4,26 +4,24 @@
     ViewBag.Title = "Devis";
 }
 
-<h2>Categorie @Model.Category.Name</h2>
+<div class="spaceunder"><img src="~/Content/Bandeau-ecran2.png" /></div>
 
-<p>@Model.Category.Description</p>
+<div>
+    <div class="information">Vous disposez d'un niveau de couverture pour ce type d’incident</div>
+    <div class="warranty">
+        <p>Garantie <b>@Model.Warranty.Name</b></p>
+        <p><b>Franchise</b> : @Model.Warranty.Excess € <br /> <b>Couverture</b> : @Model.Warranty.Coverage €</p>
+        <p>@Model.Warranty.Description</p>
+    </div>
+</div>
 
-<h2>Garantie @Model.Warranty.Name</h2>
-<p>@Model.Warranty.Description</p>
-<h3>Franchise</h3>
-@Model.Warranty.Excess
-<h3>Couverture</h3>
-@Model.Warranty.Coverage
-
-<h2>Devis</h2>
 @foreach (var quote in Model.QuoteList)
 {
-    <h3>Partenaire</h3>
-    @quote.PartnerName
-    <h3>Contrat</h3>
-    @quote.Contract
-    <h3>Prix/H</h3>
-    @quote.HourlyPrice
-    <br /><br />
-    @Html.ActionLink("Accepter", "Accept", new { quoteId = quote.Id}, new { @class = "btn btn-primary btn-lg" })
+    <div class="warranty">
+        <div class="larger">@quote.PartnerName @Html.ActionLink("Accepter", "Accept", new { quoteId = quote.Id }, new { @class = "right btn btn-default btn-lg" })
+</div>
+        <p>Prix : @quote.HourlyPrice €/heure</p>
+        <p>Contrat</p>
+        <div class="contract">@quote.Contract</div>
+    </div>
 }

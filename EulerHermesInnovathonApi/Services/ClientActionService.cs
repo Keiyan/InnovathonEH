@@ -73,7 +73,7 @@ namespace EulerHermesInnovathonApi.Services
             var twilio = new TwilioRestClient(AccountSid, AuthToken);
 
             twilio.SendMessage(
-                "+33668953172", 
+                "+33644644705", 
                 phoneNumber,
                 "Don't Panic ! " + quote.PartnerName + " is on its way to save your SI !", 
                 new Action<Message>(m => { }));
@@ -82,7 +82,7 @@ namespace EulerHermesInnovathonApi.Services
         private void sendEmail(string emailAddress, PartnerQuote quote)
         {
             bool isImportantEmail = false;
-            string fromEmail = "blueButton@eulerHermes.com";
+            string fromEmail = "FeelSecure@eulerHermes.com";
             string toEmail = emailAddress;
             int smtpPort = 587;
             bool smtpEnableSsl = true;

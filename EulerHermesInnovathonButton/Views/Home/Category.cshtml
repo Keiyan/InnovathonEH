@@ -1,0 +1,11 @@
+﻿@using EulerHermesInnovathon.Models.Button;
+@model List<Category>
+@{
+    ViewBag.Title = "Categories";
+}
+
+<div class="spaceunder"><img src="~/Content/Bandeau-ecran1.png" /></div>
+@foreach (var cat in Model)
+{
+    <p>@Html.ActionLink(cat.Name, "Quotes", new { catId = cat.Id }, new { @class = "btn btn-default" }) <img src="~/Content/greater.png" /> @cat.Description</p>
+}
