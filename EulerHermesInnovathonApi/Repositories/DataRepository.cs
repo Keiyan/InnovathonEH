@@ -46,7 +46,7 @@ namespace EulerHermesInnovathonApi.Repositories
                 }),
             new EmergencyResponse(
                 new Category("Hacking et perte de données", "Des individus se sont introduits dans votre système pour voler ou détruire des données"),
-                new Warranty("Restauration de données", 750000, 15000, "Vos données ont été détruites, remplacées ou rendues innaccessibles. Vous avez recours à un expert pour relancer le système à partir des sauvegardes"),
+                new Warranty("Restauration de données", 750000, 15000, "Vos données ont été détruites, remplacées ou rendues innaccessibles. Vous avez recours à un expert pour relancer le système à partir des sauvegardes."),
                 new List<PartnerQuote>()
                 {
                     new PartnerQuote("Alcyd"    ,400),
@@ -54,8 +54,8 @@ namespace EulerHermesInnovathonApi.Repositories
                     new PartnerQuote("Kaspersky",450),
                 }),
             new EmergencyResponse(
-                new Category("Détournement frauduleux", "Des individus se sont introduits dans votre système et a réalisé un détournement de fonds."),
-                new Warranty("Détournement frauduleux", 300000, 100000, "Des individus se sont introduits dans votre système et a réalisé un détournement de fonds."),
+                new Category("Détournement frauduleux", "Des individus se sont introduits dans votre système et ont réalisé un détournement de fonds."),
+                new Warranty("Détournement frauduleux", 300000, 100000, "Des individus se sont introduits dans votre système et ont réalisé un détournement de fonds."),
                 new List<PartnerQuote>()
                 {
                     new PartnerQuote("Sekoïa"   ,500),
@@ -72,10 +72,12 @@ namespace EulerHermesInnovathonApi.Repositories
 
         private IEnumerable<Package> _packageList = new List<Package>()
         {
-            new Package("A", 0),
-            new Package("B", 1),
-            new Package("C", 2),
-            new Package("D", 3),
+            new Package("Détournement frauduleux", 500, "Des individus se sont introduits dans votre système et ont réalisé un détournement de fonds."),
+            new Package("Cyber extorsion", 700, "Vos SI sont bloqués et un fraudeur exige une rançon. Vous avez recours à un expert pour tenter de débloquer le système"),
+            new Package("Décontamination", 1000, "Vos données sont atteintes par un virus. Vous avez recours à un expert pour tenter de décontaminer le système."),
+            new Package("Restauration de données", 300, "Vos données ont été détruites, remplacées ou rendues innaccessibles. Vous avez recours à un expert pour relancer le système à partir des sauvegardes."),
+            new Package("Piratage téléphonique", 200, "L'utilisation frauduleuse de vos systèmes de téléphonie génère des surconsommations."),
+            new Package("Frais de communication/notification", 3000, "<Vous engagez des frais de communication aux personnes dont les données à caractère personnelles détenues dans vos SI ont été atteinte."),
         };
 
         private IEnumerable<Enterprise> _enterpriseList = new List<Enterprise>()
