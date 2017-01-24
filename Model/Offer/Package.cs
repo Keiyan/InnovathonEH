@@ -9,22 +9,22 @@ namespace EulerHermesInnovathon.Models.Offer
     {
         public static readonly IEnumerable<Package> PackageList = new List<Package>()
         {
-            new Package("", 0, ""),
-            new Package("", 1, ""),
-            new Package("", 2, ""),
-            new Package("", 3, ""),
+            new Package("", 0),
+            new Package("", 1),
+            new Package("", 2),
+            new Package("", 3),
         };
 
         private static int nextId = 0;
 
         public Package() { this.PackageId = nextId++; }
-        public Package(string name, int annualPrice, string description, string contract = null)
+        public Package(string name, int annualPrice, string description = null, string contract = null)
         {
             this.PackageId = nextId++;
             this.Name = name;
             this.AnnualPrice = annualPrice;
-            this.Description = description;
-            this.Contract = contract ?? this.Name + " : " + LoremIpsum.Text;
+            this.Description = description ?? LoremIpsum.Text;
+            this.Contract = contract ?? this.Name + " : " + LoremIpsum.Text2;
         }
 
         public int PackageId { get; set; }

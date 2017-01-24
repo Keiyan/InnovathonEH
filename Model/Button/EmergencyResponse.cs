@@ -14,25 +14,25 @@ namespace EulerHermesInnovathon.Models.Button
             ResponseList = new List<EmergencyResponse>()
             {
                 new EmergencyResponse(
-                    new Category("", ""),
-                    new Warranty(0,0,""),
+                    new Category(""),
+                    new Warranty(0,0),
                     new List<PartnerQuote>()
                     {
-                        new PartnerQuote("",0,""),
+                        new PartnerQuote("",0),
                     }),
                 new EmergencyResponse(
-                    new Category("", ""),
-                    new Warranty(1,0,""),
+                    new Category(""),
+                    new Warranty(1,0),
                     new List<PartnerQuote>()
                     {
-                        new PartnerQuote("",0,""),
+                        new PartnerQuote("",0),
                     }),
                 new EmergencyResponse(
-                    new Category("", ""),
-                    new Warranty(2,0,""),
+                    new Category(""),
+                    new Warranty(2,0),
                     new List<PartnerQuote>()
                     {
-                        new PartnerQuote("",0,""),
+                        new PartnerQuote("",0),
                     }),
             };
         }

@@ -9,11 +9,11 @@ namespace EulerHermesInnovathon.Models.Button
     {
         public Warranty() { }
 
-        public Warranty(int coverage, int excess, string description)
+        public Warranty(int coverage, int excess, string description = null)
         {
             this.Coverage = coverage;
             this.Excess = excess;
-            this.Description = description;
+            this.Description = description ?? LoremIpsum.Text;
         }
 
         public int Coverage { get; set; }
