@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EulerHermesInnovathonApi", "EulerHermesInnovathonApi\EulerHermesInnovathonApi.csproj", "{1428EBB4-5383-4BD3-A9A2-EC2B96A483A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EulerHermesInnovathonOffer", "EulerHermesInnovathonOffer\EulerHermesInnovathonOffer.csproj", "{E4091AB6-8199-41DC-8692-BC75C503ADDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EulerHermesInnovathonButton", "EulerHermesInnovathonButton\EulerHermesInnovathonButton.csproj", "{AE6F9E59-8270-474B-9F95-F19E1D0D3B97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{1428EBB4-5383-4BD3-A9A2-EC2B96A483A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1428EBB4-5383-4BD3-A9A2-EC2B96A483A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1428EBB4-5383-4BD3-A9A2-EC2B96A483A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4091AB6-8199-41DC-8692-BC75C503ADDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4091AB6-8199-41DC-8692-BC75C503ADDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4091AB6-8199-41DC-8692-BC75C503ADDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4091AB6-8199-41DC-8692-BC75C503ADDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE6F9E59-8270-474B-9F95-F19E1D0D3B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE6F9E59-8270-474B-9F95-F19E1D0D3B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE6F9E59-8270-474B-9F95-F19E1D0D3B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE6F9E59-8270-474B-9F95-F19E1D0D3B97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
