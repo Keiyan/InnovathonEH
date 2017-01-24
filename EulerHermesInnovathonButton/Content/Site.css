@@ -1,24 +1,38 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿.left {
+    float: left;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.right {
+    float:right;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.clear {
+    clear: both;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.padded {
+    padding: 20px;
+    width: 850px;
+}
+
+.spaceunder {
+    padding-bottom: 10px;
+}
+
+.information {
+    color: #3F5429;
+    font-size: large
+}
+
+.warranty {
+    padding: 30px;
+    border: 5px;
+    border-color: #3F5429;
+}
+
+.contract {
+    font-size: smaller;
+}
+.larger {
+    font-size: large;
 }

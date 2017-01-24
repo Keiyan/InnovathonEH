@@ -130,8 +130,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Bandeau Droit.png" />
+    <Content Include="Content\Bandeau Gauche.png" />
+    <Content Include="Content\Bandeau Haut.png" />
+    <Content Include="Content\Bandeau-ecran1.png" />
+    <Content Include="Content\Bandeau-ecran2.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\greater.png" />
+    <Content Include="Content\Image-XL-Bouton-bleu.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -165,6 +172,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Quotes.cshtml" />
     <Content Include="Views\Home\Accept.cshtml" />
+    <Content Include="Views\Home\Category.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

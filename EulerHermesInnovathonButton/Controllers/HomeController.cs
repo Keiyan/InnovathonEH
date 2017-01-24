@@ -25,23 +25,13 @@ namespace EulerHermesInnovathonButton.Controllers
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            //if (catId.HasValue)
-            //{
-            //    // save or remove choice
-            //    if (Session["categories"] == null)
-            //        Session["categories"] = new List<int>();
+            return View();
+        }
 
-            //    var choices = Session["categories"] as List<int>;
-            //    if (choices.Exists(catid => catid == catId.Value))
-            //        choices.Remove(catId.Value);
-            //    else
-            //        choices.Add(catId.Value);
-
-            //    Session["categories"] = choices;
-            //}
-
+        public async Task<ActionResult> Category()
+        {
             var response = await client.GetAsync(ApiBaseUrl + "/category/all");
             var categories = new List<Category>();
             if (response.IsSuccessStatusCode)

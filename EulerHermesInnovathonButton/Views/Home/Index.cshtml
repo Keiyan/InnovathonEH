@@ -1,17 +1,7 @@
 ﻿@using EulerHermesInnovathon.Models.Button;
-@model List<Category>
 @{
-    ViewBag.Title = "Categories";
+    ViewBag.Title = "Index";
 }
 
-<div class="jumbotron">
-    <h1>EH Emergency</h1>
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-</div>
-
-<h2>Choisir votre categorie :</h2>
-@foreach (var cat in Model)
-{
-    <p>@Html.ActionLink(cat.Name, "Quotes", new { catId = cat.Id }, new { @class = "btn btn-primary" })</p>
-    <p>@cat.Description</p>
-}
+<div class="spaceunder"><img src="~/Content/Bandeau-ecran1.png" /></div>
+<a href="Home/Category"><img src="~/Content/Image-XL-Bouton-bleu.png" /></a>
