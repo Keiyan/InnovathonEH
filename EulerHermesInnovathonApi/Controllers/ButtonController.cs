@@ -11,15 +11,15 @@ namespace EulerHermesInnovathonApi.Controllers
     public class ButtonController : ApiController
     {
         [HttpGet]
-        [Route("/category/all")]
+        [Route("category/all")]
         public IEnumerable<Category> GetEmergencyCategories()
         {
             return Category.GetCategoryList();
         }
 
         [HttpGet]
-        [Route("/category/{id}")]
-        public Category GetCategory(int id)
+        [Route("category/{id}")]
+        public EmergencyResponse GetCategory(int id)
         {
             throw new NotImplementedException();
         }
