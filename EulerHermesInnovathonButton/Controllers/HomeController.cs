@@ -1,19 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
+using System.Threading.Tasks;
+using System.Net.Http.Formatting;
+
 
 namespace EulerHermesInnovathonButton.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private static string ApiBaseUrl = ConfigurationManager.AppSettings["ApiBaseUrl"];
+        private static HttpClient client = new HttpClient();
+
+        static HomeController()
         {
-            return View();
+            client.BaseAddress = new Uri(ApiBaseUrl);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public ActionResult About()
+
+        public async Task<ActionResult> Index()
+        {
+            //if (catId.HasValue)
+            //{
+            //    // save or remove choice
+            //    if (Session["categories"] == null)
+            //        Session["categories"] = new List<int>();
+
+            //    var choices = Session["categories"] as List<int>;
+            //    if (choices.Exists(catid => catid == catId.Value))
+            //        choices.Remove(catId.Value);
+            //    else
+            //        choices.Add(catId.Value);
+
+            //    Session["categories"] = choices;
+            //}
+
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetAsync(ApiBaseUrl + "/category/all");
+
+            var categories = new List<int>();
+            if (response.IsSuccessStatusCode)
+            {
+                categories = await response.Content.ReadAsAsync<List<int>>();
+            }
+
+            var model = new List<int>();
+            return View(model);
+        }
+
+        public ActionResult Props()
         {
             ViewBag.Message = "Your application description page.";
 
