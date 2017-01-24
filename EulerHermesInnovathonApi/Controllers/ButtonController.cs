@@ -1,4 +1,4 @@
-﻿using EulerHermesInnovathonApi.Models;
+﻿using EulerHermesInnovathonApi.Models.Button;
 using System;
 using System.Collections.Generic;
 using System.Linq;

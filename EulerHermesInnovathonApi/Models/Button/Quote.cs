@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EulerHermesInnovathonApi.Models
+namespace EulerHermesInnovathonApi.Models.Button
 {
     public class Quote
     {
