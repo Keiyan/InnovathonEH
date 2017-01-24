@@ -1,4 +1,5 @@
 ﻿using EulerHermesInnovathon.Models.Button;
+using EulerHermesInnovathonApi.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,13 @@ namespace EulerHermesInnovathonApi.Controllers
             return EmergencyResponse.ResponseList.FirstOrDefault(e => e.Category.CategoryId == id);
         }
 
+        [HttpPost]
+        [Route("accept")]
+        public IHttpActionResult AcceptQuote(PartnerQuote quote)
+        {
+            ClientActionService.Instance.PerformClientActions();
+
+            return Ok();
+        }
     }
 }
