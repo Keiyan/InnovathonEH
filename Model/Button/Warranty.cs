@@ -5,11 +5,11 @@ using System.Web;
 
 namespace EulerHermesInnovathon.Models.Button
 {
-    public class Guaranty
+    public class Warranty
     {
-        public Guaranty() { }
+        public Warranty() { }
 
-        public Guaranty(int coverage, int excess, string description)
+        public Warranty(int coverage, int excess, string description)
         {
             this.Coverage = coverage;
             this.Excess = excess;
