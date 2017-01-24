@@ -16,21 +16,21 @@ namespace EulerHermesInnovathonApi.Controllers
         [Route("category/all")]
         public IEnumerable<Category> GetEmergencyCategories()
         {
-            return DataRepository.Instance.ResponseList.Select(e => e.Category);
+            return DataRepository.Instance.GetAll<EmergencyResponse>().Select(e => e.Category);
         }
 
         [HttpGet]
         [Route("category/{id}")]
         public EmergencyResponse GetCategory(int id)
         {
-            return DataRepository.Instance.ResponseList.FirstOrDefault(e => e.Category.Id == id);
+            return DataRepository.Instance.GetAll<EmergencyResponse>().FirstOrDefault(e => e.Category.Id == id);
         }
 
         [HttpPost]
         [Route("accept")]
         public IHttpActionResult AcceptQuote(int quoteId)
         {
-            ClientActionService.Instance.PerformClientActions(DataRepository.Instance.ResponseList.SelectMany(e => e.QuoteList).FirstOrDefault(l => l.Id == quoteId));
+            ClientActionService.Instance.PerformClientActions(DataRepository.Instance.GetAll<EmergencyResponse>().SelectMany(e => e.QuoteList).FirstOrDefault(l => l.Id == quoteId));
 
             return Ok();
         }
