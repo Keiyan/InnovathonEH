@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EulerHermesInnovathonOffer"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EulerHermesInnovathonButton", "EulerHermesInnovathonButton\EulerHermesInnovathonButton.csproj", "{AE6F9E59-8270-474B-9F95-F19E1D0D3B97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{FC425D9D-92E4-4B14-88A5-20122E14B413}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AE6F9E59-8270-474B-9F95-F19E1D0D3B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE6F9E59-8270-474B-9F95-F19E1D0D3B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE6F9E59-8270-474B-9F95-F19E1D0D3B97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC425D9D-92E4-4B14-88A5-20122E14B413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC425D9D-92E4-4B14-88A5-20122E14B413}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC425D9D-92E4-4B14-88A5-20122E14B413}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC425D9D-92E4-4B14-88A5-20122E14B413}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

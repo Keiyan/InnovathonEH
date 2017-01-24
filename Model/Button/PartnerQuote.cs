@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EulerHermesInnovathonApi.Models.Button
+namespace EulerHermesInnovathon.Models.Button
 {
-    public class Quote
+    public class PartnerQuote
     {
-        public Quote() { }
-        public Quote(string partnerName, int hourlyPrice, string contract)
+        public PartnerQuote() { }
+        public PartnerQuote(string partnerName, int hourlyPrice, string contract)
         {
             this.PartnerName = partnerName;
             this.HourlyPrice = hourlyPrice;
