@@ -42,14 +42,16 @@
   <ItemGroup>
     <Compile Include="Button\Category.cs" />
     <Compile Include="Button\EmergencyResponse.cs" />
-    <Compile Include="Button\Guaranty.cs" />
+    <Compile Include="Button\Warranty.cs" />
     <Compile Include="Button\PartnerQuote.cs" />
+    <Compile Include="Client\ClientAction.cs" />
     <Compile Include="LoremIpsum.cs" />
     <Compile Include="Offer\Enterprise.cs" />
     <Compile Include="Offer\Package.cs" />
     <Compile Include="Offer\Quote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

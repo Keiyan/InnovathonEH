@@ -27,9 +27,9 @@ namespace EulerHermesInnovathonApi.Controllers
 
         [HttpPost]
         [Route("accept")]
-        public IHttpActionResult AcceptQuote(PartnerQuote quote)
+        public IHttpActionResult AcceptQuote(int quoteId)
         {
-            ClientActionService.Instance.PerformClientActions();
+            ClientActionService.Instance.PerformClientActions(EmergencyResponse.ResponseList.SelectMany(e => e.QuoteList).FirstOrDefault(l => l.PartnerQuoteId == quoteId));
 
             return Ok();
         }

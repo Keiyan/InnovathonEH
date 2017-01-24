@@ -1,7 +1,13 @@
-﻿using System;
+﻿using EulerHermesInnovathon.Model.Client;
+using EulerHermesInnovathon.Models.Button;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
+using Twilio;
 
 namespace EulerHermesInnovathonApi.Services
 {
@@ -24,22 +30,119 @@ namespace EulerHermesInnovathonApi.Services
 
         public void RegisterForSms(string phoneNumber)
         {
-            throw new NotImplementedException();
+            this._actionList.Add(new ClientAction() { ActionType = ClientActionType.Sms, ActionData = phoneNumber });
+            this.Serialize();
         }
 
         public void RegisterForEmail(string emailAddress)
         {
-            throw new NotImplementedException();
+            this._actionList.Add(new ClientAction() { ActionType = ClientActionType.Email, ActionData = emailAddress });
+            this.Serialize();
         }
 
         public void RegisterForCallback(string callbackUri)
         {
+            this._actionList.Add(new ClientAction() { ActionType = ClientActionType.Callback, ActionData = callbackUri });
+            this.Serialize();
+        }
+
+        public void PerformClientActions(PartnerQuote quote)
+        {
+            this.Deserialize();
+            foreach (var action in this._actionList)
+            {
+                switch (action.ActionType)
+                {
+                    case ClientActionType.Sms:
+                        this.sendSms(action.ActionData, quote);
+                        break;
+                    case ClientActionType.Email:
+                        this.sendEmail(action.ActionData, quote);
+                        break;
+                    case ClientActionType.Callback:
+                        this.callback(action.ActionData, quote);
+                        break;
+                }
+            }
+        }
+
+        private void sendSms(string phoneNumber, PartnerQuote quote)
+        {
+            string AccountSid = "AC46920ac3a6c3c0bd914e0539134e6171";
+            string AuthToken = "5eeed72d74b3b061831d24729054aa54";
+            var twilio = new TwilioRestClient(AccountSid, AuthToken);
+
+            twilio.SendMessage(
+                "+33668953172", 
+                phoneNumber,
+                "Don't Panic ! " + quote.PartnerName + " is on its way to save your SI !", 
+                new Action<Message>(m => { }));
+        }
+
+        private void sendEmail(string emailAddress, PartnerQuote quote)
+        {
+            bool isImportantEmail = false;
+            string fromEmail = "blueButton@eulerHermes.com";
+            string toEmail = emailAddress;
+            int smtpPort = 587;
+            bool smtpEnableSsl = true;
+            string smtpHost = " SSL0.ovh.net";
+            string smtpUser = "iothub@keiyan.net";
+            string smtpPass = "Lk8Je6QS99gR10w12Uqm";
+            string subject = "Don't Panic ! " + quote.PartnerName + " is on its way to save your SI !";
+            string body = string.Format(@"Hello,
+
+Someone pressed the blue button. Our emergency partner {0} is on its way.
+The hourly rate for the intervention is {1} €/hour.
+Here is a copy of the contract accepted for this intervention :
+{2}", quote.PartnerName, quote.HourlyPrice, quote.Contract);
+
+            MailMessage mail = new MailMessage(fromEmail, toEmail);
+            SmtpClient client = new SmtpClient();
+            client.Port = smtpPort;
+            client.EnableSsl = smtpEnableSsl;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Host = smtpHost;
+            client.Credentials = new System.Net.NetworkCredential(smtpUser, smtpPass);
+            mail.Subject = subject;
+
+            if (isImportantEmail)
+            {
+                mail.Priority = MailPriority.High;
+            }
+
+            mail.Body = body;
+            client.Send(mail);
+        }
+
+        private void callback(string actionData, PartnerQuote quote)
+        {
             throw new NotImplementedException();
         }
 
-        public void PerformClientActions()
+        private List<ClientAction> _actionList;
+
+        private const string FileName = "C:\\temp\\actions.json";
+
+        private void Serialize()
         {
-            throw new NotImplementedException();
+            string serialized = JsonConvert.SerializeObject(this._actionList);
+
+            lock(__sync)
+            {
+                File.WriteAllText(FileName, serialized);
+            }
+        }
+
+        private void Deserialize()
+        {
+            string content = File.ReadAllText(FileName);
+
+            lock(__sync)
+            {
+                this._actionList = JsonConvert.DeserializeObject<List<ClientAction>>(content);
+            }
         }
     }
 }
