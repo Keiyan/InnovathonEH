@@ -137,6 +137,7 @@ Here is a copy of the contract accepted for this intervention :
 
         private void Deserialize()
         {
+            if (!File.Exists(FileName)) return;
             string content = File.ReadAllText(FileName);
 
             lock(__sync)

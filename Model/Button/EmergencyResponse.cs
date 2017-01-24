@@ -42,13 +42,13 @@ namespace EulerHermesInnovathon.Models.Button
         public EmergencyResponse(Category category, Warranty guaranty, IEnumerable<PartnerQuote> quoteList)
         {
             this.Category = category;
-            this.Guaranty = guaranty;
+            this.Warranty = guaranty;
             this.QuoteList = quoteList;
         }
 
         public Category Category { get; set; }
 
-        public Warranty Guaranty { get; set; }
+        public Warranty Warranty { get; set; }
 
         public IEnumerable<PartnerQuote> QuoteList { get; set; }
     }
