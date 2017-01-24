@@ -5,7 +5,7 @@
 }
 
 <h2>Category</h2>
-@Model.Category.CategoryId
+@Model.Category.Id
 
 <h2>Warranty</h2>
 <h3>Excess</h3>
@@ -20,6 +20,6 @@
     <h4>Hourly Price</h4>
     @quote.HourlyPrice
     <br />
-    @Html.ActionLink("Accepter", "Accept", new { quoteId = quote.PartnerQuoteId})
+    @Html.ActionLink("Accepter", "Accept", new { quoteId = quote.Id})
     <br />
 }

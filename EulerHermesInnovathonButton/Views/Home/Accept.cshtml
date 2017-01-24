@@ -1,6 +1,6 @@
 ﻿@model bool
 @{
-    ViewBag.Title = "Quote";
+    ViewBag.Title = "Acceptation";
 }
 
-<h2>@(User.Identity.IsAuthenticated ? "Quote Acceptée" : "Erreur")</h2>
+<h2>@(Model ? "Quote Acceptée" : "Erreur")</h2>

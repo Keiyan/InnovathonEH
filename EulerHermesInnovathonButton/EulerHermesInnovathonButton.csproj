@@ -163,7 +163,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Props.cshtml" />
+    <Content Include="Views\Home\Quotes.cshtml" />
     <Content Include="Views\Home\Accept.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>

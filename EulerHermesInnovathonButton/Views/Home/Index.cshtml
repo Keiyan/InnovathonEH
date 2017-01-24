@@ -15,7 +15,7 @@
         <h2>Getting started</h2>
         @foreach (var cat in Model)
         {
-            @Html.ActionLink(cat.CategoryId.ToString(), "Props", new { catId = cat.CategoryId })
+            @Html.ActionLink(cat.Id.ToString(), "Quotes", new { catId = cat.Id })
             <br />
         }
         <p>

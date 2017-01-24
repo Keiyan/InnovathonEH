@@ -50,7 +50,7 @@ namespace EulerHermesInnovathonButton.Controllers
             return View(categories);
         }
 
-        public async Task<ActionResult> Props(int catId)
+        public async Task<ActionResult> Quotes(int catId)
         {
             var response = await client.GetAsync(ApiBaseUrl + $"/category/{catId}");
             var emergency = new EmergencyResponse();
@@ -62,7 +62,7 @@ namespace EulerHermesInnovathonButton.Controllers
 
         public async Task<ActionResult> Accept(int quoteId)
         {
-            var response = await client.PostAsync<int>(ApiBaseUrl + $"/accept?quoteId={quoteId}", quoteId, new JsonMediaTypeFormatter());
+            var response = await client.PostAsync(ApiBaseUrl + $"/accept?quoteId={quoteId}", null);
             return View(response.IsSuccessStatusCode);
         }
     }
