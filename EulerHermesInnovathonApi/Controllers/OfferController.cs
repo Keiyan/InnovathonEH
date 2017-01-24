@@ -35,7 +35,7 @@ namespace EulerHermesInnovathonApi.Controllers
         [Route("enterprise/{siren}")]
         public Enterprise GetEnterpriseDetails(string SIREN)
         {
-            throw new NotImplementedException();
+            return Enterprise.EnterpriseList.FirstOrDefault(e => e.SIREN == SIREN);
         }
     }
 }
