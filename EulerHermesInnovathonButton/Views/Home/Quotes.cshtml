@@ -4,8 +4,8 @@
     ViewBag.Title = "Devis";
 }
 
-<h2>Categorie</h2>
-@Model.Category.Name
+<h2>Categorie @Model.Category.Name</h2>
+
 <p>@Model.Category.Description</p>
 
 <h2>Garantie</h2>
@@ -24,7 +24,6 @@
     @quote.Contract
     <h3>Prix/H</h3>
     @quote.HourlyPrice
-    <br />
-    @Html.ActionLink("Accepter", "Accept", new { quoteId = quote.Id})
-    <br />
+    <br /><br />
+    @Html.ActionLink("Accepter", "Accept", new { quoteId = quote.Id}, new { @class = "btn btn-primary btn-lg" })
 }
