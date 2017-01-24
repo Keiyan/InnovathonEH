@@ -27,25 +27,46 @@ namespace EulerHermesInnovathonApi.Repositories
         private IEnumerable<EmergencyResponse> _responseList = new List<EmergencyResponse>()
         {
             new EmergencyResponse(
-                new Category("CA"),
-                new Warranty(0,0),
+                new Category("Défacement de site", "Le visuel de votre site web a été remplacé par des images choquantes ou portant atteinte à votre image"),
+                new Warranty("Restauration de données", 500000, 20000, "Vos données ont été détruites, remplacées ou rendues innaccessibles. Vous avez recours à un expert pour relancer le système à partir des sauvegardes"),
                 new List<PartnerQuote>()
                 {
-                    new PartnerQuote("QA",0),
+                    new PartnerQuote("Kaspersky",450),
+                    new PartnerQuote("Sekoïa"   ,475),
+                    new PartnerQuote("Alcyd"    ,600),
                 }),
             new EmergencyResponse(
-                new Category("CB"),
-                new Warranty(1,0),
+                new Category("Cyber extorsion", "Vos SI sont bloqués et un fraudeur exige une rançon."),
+                new Warranty("Cyber Extorsion", 1000000, 50000, "Vos SI sont bloqués et un fraudeur exige une rançon. Vous avez recours à un expert pour tenter de débloquer le système"),
                 new List<PartnerQuote>()
                 {
-                    new PartnerQuote("QB",0),
+                    new PartnerQuote("Sekoïa"   ,400),
+                    new PartnerQuote("Kaspersky",450),
+                    new PartnerQuote("Alcyd"    ,600),
                 }),
             new EmergencyResponse(
-                new Category("CC"),
-                new Warranty(2,0),
+                new Category("Hacking et perte de données", "Des individus se sont introduits dans votre système pour voler ou détruire des données"),
+                new Warranty("Restauration de données", 750000, 15000, "Vos données ont été détruites, remplacées ou rendues innaccessibles. Vous avez recours à un expert pour relancer le système à partir des sauvegardes"),
                 new List<PartnerQuote>()
                 {
-                    new PartnerQuote("QC",0),
+                    new PartnerQuote("Alcyd"    ,400),
+                    new PartnerQuote("Sekoïa"   ,430),
+                    new PartnerQuote("Kaspersky",450),
+                }),
+            new EmergencyResponse(
+                new Category("Détournement frauduleux", "Des individus se sont introduits dans votre système et a réalisé un détournement de fonds."),
+                new Warranty("Détournement frauduleux", 300000, 100000, "Des individus se sont introduits dans votre système et a réalisé un détournement de fonds."),
+                new List<PartnerQuote>()
+                {
+                    new PartnerQuote("Sekoïa"   ,500),
+                    new PartnerQuote("Kaspersky",800),
+                }),
+            new EmergencyResponse(
+                new Category("Autres", "Votre problème ne correspond à aucune des catégories ci-dessus"),
+                new Warranty("Piratage", 6666666, 42, "La garantie piratage courve toutes conséquences de cyber attaques et cyber fraudes."),
+                new List<PartnerQuote>()
+                {
+                    new PartnerQuote("Sekoïa"   ,1000),
                 }),
         };
 
