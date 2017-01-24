@@ -83,6 +83,8 @@ namespace EulerHermesInnovathonApi.Repositories
         private IEnumerable<Enterprise> _enterpriseList = new List<Enterprise>()
         {
             new Enterprise("678502444", "ROHL", 6700000, 30, "2740Z", false, "Fabrication d'éclairage", null),
+            new Enterprise("348920596", "Euler Hermès", 2600000000, 7000, "6512Z", true, "Autres assurances", null),
+            new Enterprise("42", "STAR TREK", 99999999999, 15000000, "SPACE", true, "Découverte de l'infini", null),
         };
 
         public IEnumerable<T> GetAll<T>()

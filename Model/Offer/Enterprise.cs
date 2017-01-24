@@ -13,7 +13,7 @@ namespace EulerHermesInnovathon.Models.Offer
         public Enterprise(
             string SIREN
             , string name
-            , int totalRevenue
+            , long totalRevenue
             , int peopleCount
             , string NAF
             , bool isGroup
@@ -35,7 +35,7 @@ namespace EulerHermesInnovathon.Models.Offer
 
         public string Name { get; set; }
 
-        public int TotalRevenue { get; set; }
+        public long TotalRevenue { get; set; }
 
         public int PeopleCount { get; set; }
 
