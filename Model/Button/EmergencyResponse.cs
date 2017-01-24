@@ -14,25 +14,25 @@ namespace EulerHermesInnovathon.Models.Button
             ResponseList = new List<EmergencyResponse>()
             {
                 new EmergencyResponse(
-                    new Category("", ""),
-                    new Warranty(0,0,""),
+                    new Category(""),
+                    new Warranty(0,0),
                     new List<PartnerQuote>()
                     {
-                        new PartnerQuote("",0,""),
+                        new PartnerQuote("",0),
                     }),
                 new EmergencyResponse(
-                    new Category("", ""),
-                    new Warranty(1,0,""),
+                    new Category(""),
+                    new Warranty(1,0),
                     new List<PartnerQuote>()
                     {
-                        new PartnerQuote("",0,""),
+                        new PartnerQuote("",0),
                     }),
                 new EmergencyResponse(
-                    new Category("", ""),
-                    new Warranty(2,0,""),
+                    new Category(""),
+                    new Warranty(2,0),
                     new List<PartnerQuote>()
                     {
-                        new PartnerQuote("",0,""),
+                        new PartnerQuote("",0),
                     }),
             };
         }
@@ -42,13 +42,13 @@ namespace EulerHermesInnovathon.Models.Button
         public EmergencyResponse(Category category, Warranty guaranty, IEnumerable<PartnerQuote> quoteList)
         {
             this.Category = category;
-            this.Guaranty = guaranty;
+            this.Warranty = guaranty;
             this.QuoteList = quoteList;
         }
 
         public Category Category { get; set; }
 
-        public Warranty Guaranty { get; set; }
+        public Warranty Warranty { get; set; }
 
         public IEnumerable<PartnerQuote> QuoteList { get; set; }
     }

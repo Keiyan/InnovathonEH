@@ -9,12 +9,12 @@ namespace EulerHermesInnovathon.Models.Button
     {
         private static int nextId = 0;
         public PartnerQuote() { this.PartnerQuoteId = nextId++; }
-        public PartnerQuote(string partnerName, int hourlyPrice, string contract)
+        public PartnerQuote(string partnerName, int hourlyPrice, string contract = null)
         {
             this.PartnerQuoteId = nextId++;
             this.PartnerName = partnerName;
             this.HourlyPrice = hourlyPrice;
-            this.Contract = contract;
+            this.Contract = contract ?? LoremIpsum.Text3;
         }
 
         public string PartnerName { get; set; }

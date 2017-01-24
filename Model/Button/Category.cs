@@ -10,11 +10,11 @@ namespace EulerHermesInnovathon.Models.Button
         private static int nextId = 0;
 
         public Category() { this.CategoryId = nextId++; }
-        public Category(string name, string description)
+        public Category(string name, string description = null)
         {
             this.CategoryId = nextId++;
             this.Name = name;
-            this.Description = description;
+            this.Description = description ?? LoremIpsum.Text;
         }
 
         public int CategoryId { get; set; }
