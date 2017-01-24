@@ -1,0 +1,8 @@
+﻿@model int
+@{
+    ViewBag.Title = $"Page {Model}";
+}
+
+<a href="@Url.Action("PageN", new { page = Model + 1})">
+    <img src="~/Content/Page@(Model).png" width="1900" alt="Page @Model" />
+</a>

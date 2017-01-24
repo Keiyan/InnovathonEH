@@ -1,6 +1,12 @@
-﻿using System;
+﻿using EulerHermesInnovathon.Models.Offer;
+using EulerHermesInnovathonOffer.Models;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,23 +14,47 @@ namespace EulerHermesInnovathonOffer.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private static string ApiBaseUrl = ConfigurationManager.AppSettings["ApiBaseUrl"];
+        private static HttpClient client = new HttpClient();
+
+        static HomeController()
         {
-            return View();
+            client.BaseAddress = new Uri(ApiBaseUrl);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public ActionResult About()
+        public async Task<ActionResult> Index(int[] packageIds)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var model = new IndexViewModel
+            {
+                Packages = await GetPackages(),
+            };
+            return View(model);
         }
 
-        public ActionResult Contact()
+        public ActionResult PageN(int page = 1)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(page);
         }
+
+        private async Task<List<Package>> GetPackages()
+        {
+            var response = await client.GetAsync(ApiBaseUrl + "/package/all");
+            var packages = new List<Package>();
+            if (response.IsSuccessStatusCode)
+                packages = await response.Content.ReadAsAsync<List<Package>>();
+            return packages;
+        }
+
+        //private async Task<List<Quote>> GetQuotes()
+        //{
+
+        //    var response = await client.GetAsync(ApiBaseUrl + "/quote?" + );
+        //    var quotes = new List<Quote>();
+        //    if (response.IsSuccessStatusCode)
+        //        quotes = await response.Content.ReadAsAsync<List<Quote>>();
+        //    return quotes;
+        //}
     }
 }
