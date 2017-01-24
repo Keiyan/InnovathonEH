@@ -218,6 +218,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ButtonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -228,7 +229,11 @@
     <Compile Include="Models\Button\EmergencyResponse.cs" />
     <Compile Include="Models\Button\Guaranty.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Button\Quote.cs" />
+    <Compile Include="Models\Button\PartnerQuote.cs" />
+    <Compile Include="Models\LoremIpsum.cs" />
+    <Compile Include="Models\Offer\Enterprise.cs" />
+    <Compile Include="Models\Offer\Package.cs" />
+    <Compile Include="Models\Offer\Quote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />

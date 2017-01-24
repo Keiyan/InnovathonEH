@@ -16,30 +16,30 @@ namespace EulerHermesInnovathonApi.Models.Button
                 new EmergencyResponse(
                     new Category("", ""),
                     new Guaranty(0,0,""),
-                    new List<Quote>()
+                    new List<PartnerQuote>()
                     {
-                        new Quote("",0,""),
+                        new PartnerQuote("",0,""),
                     }),
                 new EmergencyResponse(
                     new Category("", ""),
                     new Guaranty(1,0,""),
-                    new List<Quote>()
+                    new List<PartnerQuote>()
                     {
-                        new Quote("",0,""),
+                        new PartnerQuote("",0,""),
                     }),
                 new EmergencyResponse(
                     new Category("", ""),
                     new Guaranty(2,0,""),
-                    new List<Quote>()
+                    new List<PartnerQuote>()
                     {
-                        new Quote("",0,""),
+                        new PartnerQuote("",0,""),
                     }),
             };
         }
 
         public EmergencyResponse() { }
 
-        public EmergencyResponse(Category category, Guaranty guaranty, IEnumerable<Quote> quoteList)
+        public EmergencyResponse(Category category, Guaranty guaranty, IEnumerable<PartnerQuote> quoteList)
         {
             this.Category = category;
             this.Guaranty = guaranty;
@@ -50,6 +50,6 @@ namespace EulerHermesInnovathonApi.Models.Button
 
         public Guaranty Guaranty { get; set; }
 
-        public IEnumerable<Quote> QuoteList { get; set; }
+        public IEnumerable<PartnerQuote> QuoteList { get; set; }
     }
 }
