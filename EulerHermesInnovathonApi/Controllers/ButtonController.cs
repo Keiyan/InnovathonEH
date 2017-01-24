@@ -22,14 +22,14 @@ namespace EulerHermesInnovathonApi.Controllers
         [Route("category/{id}")]
         public EmergencyResponse GetCategory(int id)
         {
-            return EmergencyResponse.ResponseList.FirstOrDefault(e => e.Category.CategoryId == id);
+            return EmergencyResponse.ResponseList.FirstOrDefault(e => e.Category.Id == id);
         }
 
         [HttpPost]
         [Route("accept")]
         public IHttpActionResult AcceptQuote(int quoteId)
         {
-            ClientActionService.Instance.PerformClientActions(EmergencyResponse.ResponseList.SelectMany(e => e.QuoteList).FirstOrDefault(l => l.PartnerQuoteId == quoteId));
+            ClientActionService.Instance.PerformClientActions(EmergencyResponse.ResponseList.SelectMany(e => e.QuoteList).FirstOrDefault(l => l.Id == quoteId));
 
             return Ok();
         }

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
     <Compile Include="Button\Category.cs" />
     <Compile Include="Button\EmergencyResponse.cs" />
     <Compile Include="Button\Warranty.cs" />

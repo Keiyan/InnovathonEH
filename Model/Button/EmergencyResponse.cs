@@ -1,11 +1,12 @@
-﻿using System;
+﻿using EulerHermesInnovathon.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace EulerHermesInnovathon.Models.Button
 {
-    public class EmergencyResponse
+    public class EmergencyResponse : BaseEntity
     {
         public static IEnumerable<EmergencyResponse> ResponseList { get; private set; }
 
@@ -41,6 +42,7 @@ namespace EulerHermesInnovathon.Models.Button
 
         public EmergencyResponse(Category category, Warranty guaranty, IEnumerable<PartnerQuote> quoteList)
         {
+            this.SetId();
             this.Category = category;
             this.Warranty = guaranty;
             this.QuoteList = quoteList;

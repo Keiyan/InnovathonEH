@@ -21,7 +21,7 @@ namespace EulerHermesInnovathonApi.Controllers
         [Route("quote")]
         public Quote GetQuote([FromUri(Name ="package")] IEnumerable<int> packageList)
         {
-            return new Quote(Package.PackageList.Where(p => packageList.Contains(p.PackageId)));
+            return new Quote(Package.PackageList.Where(p => packageList.Contains(p.Id)));
         }
 
         [HttpPost]

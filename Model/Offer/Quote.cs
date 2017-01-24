@@ -1,15 +1,17 @@
-﻿using System;
+﻿using EulerHermesInnovathon.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace EulerHermesInnovathon.Models.Offer
 {
-    public class Quote
+    public class Quote : BaseEntity
     {
         public Quote() { }
         public Quote(IEnumerable<Package> packageList)
         {
+            this.SetId();
             this.PackageList = packageList;
         }
 
