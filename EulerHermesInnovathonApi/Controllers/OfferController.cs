@@ -1,4 +1,5 @@
 ﻿using EulerHermesInnovathon.Models.Offer;
+using EulerHermesInnovathonApi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +15,14 @@ namespace EulerHermesInnovathonApi.Controllers
         [Route("package/all")]
         public IEnumerable<Package> GetAllPackages()
         {
-            return Package.PackageList;
+            return DataRepository.Instance.PackageList;
         }
 
         [HttpGet]
         [Route("quote")]
         public Quote GetQuote([FromUri(Name ="package")] IEnumerable<int> packageList)
         {
-            return new Quote(Package.PackageList.Where(p => packageList.Contains(p.Id)));
+            return new Quote(DataRepository.Instance.PackageList.Where(p => packageList.Contains(p.Id)));
         }
 
         [HttpPost]
@@ -35,7 +36,7 @@ namespace EulerHermesInnovathonApi.Controllers
         [Route("enterprise/{siren}")]
         public Enterprise GetEnterpriseDetails(string SIREN)
         {
-            return Enterprise.EnterpriseList.FirstOrDefault(e => e.SIREN == SIREN);
+            return DataRepository.Instance.EnterpriseList.FirstOrDefault(e => e.SIREN == SIREN);
         }
     }
 }

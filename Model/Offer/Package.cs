@@ -8,14 +8,6 @@ namespace EulerHermesInnovathon.Models.Offer
 {
     public class Package : BaseEntity
     {
-        public static readonly IEnumerable<Package> PackageList = new List<Package>()
-        {
-            new Package("", 0),
-            new Package("", 1),
-            new Package("", 2),
-            new Package("", 3),
-        };
-
         public Package() { }
         public Package(string name, int annualPrice, string description = null, string contract = null)
         {
