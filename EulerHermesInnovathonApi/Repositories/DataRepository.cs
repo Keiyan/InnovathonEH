@@ -48,7 +48,6 @@ namespace EulerHermesInnovathonApi.Repositories
                     new PartnerQuote("QC",0),
                 }),
         };
-        public IEnumerable<EmergencyResponse> ResponseList {  get { return this._responseList; } }
 
         private IEnumerable<Package> _packageList = new List<Package>()
         {
@@ -58,14 +57,19 @@ namespace EulerHermesInnovathonApi.Repositories
             new Package("D", 3),
         };
 
-        public IEnumerable<Package> PackageList { get { return this._packageList; } }
-
         private IEnumerable<Enterprise> _enterpriseList = new List<Enterprise>()
         {
             new Enterprise("678502444", "ROHL", 6700000, 30, "2740Z", false, "Fabrication d'éclairage", null),
         };
 
-        public IEnumerable<Enterprise> EnterpriseList { get { return this._enterpriseList; } }
+        public IEnumerable<T> GetAll<T>()
+        {
+            var targetType = typeof(T);
+            if (targetType == typeof(EmergencyResponse)) return (IEnumerable<T>)this._responseList;
+            if (targetType == typeof(Package)) return (IEnumerable<T>)this._packageList;
+            if (targetType == typeof(Enterprise)) return (IEnumerable<T>)this._enterpriseList;
 
+            return null;
+        }
     }
 }
