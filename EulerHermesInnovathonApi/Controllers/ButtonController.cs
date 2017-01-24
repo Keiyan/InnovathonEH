@@ -14,14 +14,14 @@ namespace EulerHermesInnovathonApi.Controllers
         [Route("category/all")]
         public IEnumerable<Category> GetEmergencyCategories()
         {
-            return Category.GetCategoryList();
+            return EmergencyResponse.ResponseList.Select(e => e.Category);
         }
 
         [HttpGet]
         [Route("category/{id}")]
         public EmergencyResponse GetCategory(int id)
         {
-            throw new NotImplementedException();
+            return EmergencyResponse.ResponseList.FirstOrDefault(e => e.Category.CategoryId == id);
         }
 
     }

@@ -7,5 +7,17 @@ namespace EulerHermesInnovathonApi.Models
 {
     public class Guaranty
     {
+        public Guaranty() { }
+
+        public Guaranty(int coverage, int excess, string description)
+        {
+            this.Coverage = coverage;
+            this.Excess = excess;
+            this.Description = description;
+        }
+
+        public int Coverage { get; set; }
+        public int Excess { get; set; }
+        public string Description { get; set; }
     }
 }
